@@ -1,0 +1,22 @@
+﻿@model UploadFiles.Models.Upload
+
+@{
+    ViewBag.Title = "UploadFile";
+}
+
+<h2>UploadFile</h2>
+@using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.LabelFor(model => model.Titulo)
+    </div>
+    <div>
+        @Html.EditorFor(model => model.Titulo)
+    </div>
+    <input type="file" name="file" id="file" />
+    <input type="submit" value="Upload" />
+    if (ViewData["Success"] != null)
+    {
+    @ViewData["Success"]
+    }
+}
